@@ -6,6 +6,7 @@ target 'Polynal' do
   use_frameworks!
 
   # Pods for Polynal
+  pod 'Alamofire', '~> 5.4'
 
   target 'PolynalTests' do
     inherit! :search_paths
