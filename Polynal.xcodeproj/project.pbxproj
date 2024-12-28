@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		07A66AF8295CEE775CCE3ABE /* Pods_Polynal_PolynalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB015A24492D1B4E941259FC /* Pods_Polynal_PolynalUITests.framework */; };
+		51D6FB21624D6CBA6CE131B2 /* Pods_PolynalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A379AE77993EC1AC0270E8 /* Pods_PolynalTests.framework */; };
+		E358BF29D93964976661C4CA /* Pods_Polynal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BA397CFBADF776F95BFA79 /* Pods_Polynal.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		25E78B9F2D1BE343002FAD8C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,24 +30,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16A379AE77993EC1AC0270E8 /* Pods_PolynalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolynalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E78B8E2D1BE342002FAD8C /* Polynal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polynal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E78B9E2D1BE343002FAD8C /* PolynalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolynalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E78BA82D1BE343002FAD8C /* PolynalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolynalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F7D428FF6C818EC33B29AB6 /* Pods-PolynalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolynalTests.release.xcconfig"; path = "Target Support Files/Pods-PolynalTests/Pods-PolynalTests.release.xcconfig"; sourceTree = "<group>"; };
+		65BA397CFBADF776F95BFA79 /* Pods_Polynal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Polynal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A9B4075EC2D43515A1E5139 /* Pods-Polynal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polynal.release.xcconfig"; path = "Target Support Files/Pods-Polynal/Pods-Polynal.release.xcconfig"; sourceTree = "<group>"; };
+		6D02850F433DA1F6C5D2B605 /* Pods-PolynalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolynalTests.debug.xcconfig"; path = "Target Support Files/Pods-PolynalTests/Pods-PolynalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BFAB1A8C22A08A2BE21A917C /* Pods-Polynal-PolynalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polynal-PolynalUITests.debug.xcconfig"; path = "Target Support Files/Pods-Polynal-PolynalUITests/Pods-Polynal-PolynalUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C686B4C0D19BB4CAE609B09F /* Pods-Polynal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polynal.debug.xcconfig"; path = "Target Support Files/Pods-Polynal/Pods-Polynal.debug.xcconfig"; sourceTree = "<group>"; };
+		C998A6B6013460803F80C3D3 /* Pods-Polynal-PolynalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polynal-PolynalUITests.release.xcconfig"; path = "Target Support Files/Pods-Polynal-PolynalUITests/Pods-Polynal-PolynalUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB015A24492D1B4E941259FC /* Pods_Polynal_PolynalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Polynal_PolynalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		25E78B902D1BE342002FAD8C /* Polynal */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = Polynal;
 			sourceTree = "<group>";
 		};
 		25E78BA12D1BE343002FAD8C /* PolynalTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = PolynalTests;
 			sourceTree = "<group>";
 		};
 		25E78BAB2D1BE343002FAD8C /* PolynalUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = PolynalUITests;
 			sourceTree = "<group>";
 		};
@@ -52,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E358BF29D93964976661C4CA /* Pods_Polynal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51D6FB21624D6CBA6CE131B2 /* Pods_PolynalTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A66AF8295CEE775CCE3ABE /* Pods_Polynal_PolynalUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +103,8 @@
 				25E78BA12D1BE343002FAD8C /* PolynalTests */,
 				25E78BAB2D1BE343002FAD8C /* PolynalUITests */,
 				25E78B8F2D1BE342002FAD8C /* Products */,
+				736B5AF2DF2D91607880B473 /* Pods */,
+				5DF99DFD4E21D8BEDBBB5AA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +118,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5DF99DFD4E21D8BEDBBB5AA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65BA397CFBADF776F95BFA79 /* Pods_Polynal.framework */,
+				DB015A24492D1B4E941259FC /* Pods_Polynal_PolynalUITests.framework */,
+				16A379AE77993EC1AC0270E8 /* Pods_PolynalTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		736B5AF2DF2D91607880B473 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C686B4C0D19BB4CAE609B09F /* Pods-Polynal.debug.xcconfig */,
+				6A9B4075EC2D43515A1E5139 /* Pods-Polynal.release.xcconfig */,
+				BFAB1A8C22A08A2BE21A917C /* Pods-Polynal-PolynalUITests.debug.xcconfig */,
+				C998A6B6013460803F80C3D3 /* Pods-Polynal-PolynalUITests.release.xcconfig */,
+				6D02850F433DA1F6C5D2B605 /* Pods-PolynalTests.debug.xcconfig */,
+				5F7D428FF6C818EC33B29AB6 /* Pods-PolynalTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,6 +149,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25E78BB22D1BE343002FAD8C /* Build configuration list for PBXNativeTarget "Polynal" */;
 			buildPhases = (
+				9733ACC070B40CE7E7E364C7 /* [CP] Check Pods Manifest.lock */,
 				25E78B8A2D1BE342002FAD8C /* Sources */,
 				25E78B8B2D1BE342002FAD8C /* Frameworks */,
 				25E78B8C2D1BE342002FAD8C /* Resources */,
@@ -111,8 +162,6 @@
 				25E78B902D1BE342002FAD8C /* Polynal */,
 			);
 			name = Polynal;
-			packageProductDependencies = (
-			);
 			productName = Polynal;
 			productReference = 25E78B8E2D1BE342002FAD8C /* Polynal.app */;
 			productType = "com.apple.product-type.application";
@@ -121,6 +170,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25E78BB52D1BE343002FAD8C /* Build configuration list for PBXNativeTarget "PolynalTests" */;
 			buildPhases = (
+				9682E3F6EF610E0C2F9CC258 /* [CP] Check Pods Manifest.lock */,
 				25E78B9A2D1BE343002FAD8C /* Sources */,
 				25E78B9B2D1BE343002FAD8C /* Frameworks */,
 				25E78B9C2D1BE343002FAD8C /* Resources */,
@@ -134,8 +184,6 @@
 				25E78BA12D1BE343002FAD8C /* PolynalTests */,
 			);
 			name = PolynalTests;
-			packageProductDependencies = (
-			);
 			productName = PolynalTests;
 			productReference = 25E78B9E2D1BE343002FAD8C /* PolynalTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -144,6 +192,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25E78BB82D1BE343002FAD8C /* Build configuration list for PBXNativeTarget "PolynalUITests" */;
 			buildPhases = (
+				AD69631E0F5F98EA2F740F58 /* [CP] Check Pods Manifest.lock */,
 				25E78BA42D1BE343002FAD8C /* Sources */,
 				25E78BA52D1BE343002FAD8C /* Frameworks */,
 				25E78BA62D1BE343002FAD8C /* Resources */,
@@ -157,8 +206,6 @@
 				25E78BAB2D1BE343002FAD8C /* PolynalUITests */,
 			);
 			name = PolynalUITests;
-			packageProductDependencies = (
-			);
 			productName = PolynalUITests;
 			productReference = 25E78BA82D1BE343002FAD8C /* PolynalUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -230,6 +277,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9682E3F6EF610E0C2F9CC258 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PolynalTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9733ACC070B40CE7E7E364C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Polynal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD69631E0F5F98EA2F740F58 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Polynal-PolynalUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		25E78B8A2D1BE342002FAD8C /* Sources */ = {
@@ -390,6 +506,7 @@
 		};
 		25E78BB32D1BE343002FAD8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C686B4C0D19BB4CAE609B09F /* Pods-Polynal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -419,6 +536,7 @@
 		};
 		25E78BB42D1BE343002FAD8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A9B4075EC2D43515A1E5139 /* Pods-Polynal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -448,6 +566,7 @@
 		};
 		25E78BB62D1BE343002FAD8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D02850F433DA1F6C5D2B605 /* Pods-PolynalTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -467,6 +586,7 @@
 		};
 		25E78BB72D1BE343002FAD8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F7D428FF6C818EC33B29AB6 /* Pods-PolynalTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +606,7 @@
 		};
 		25E78BB92D1BE343002FAD8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFAB1A8C22A08A2BE21A917C /* Pods-Polynal-PolynalUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -503,6 +624,7 @@
 		};
 		25E78BBA2D1BE343002FAD8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C998A6B6013460803F80C3D3 /* Pods-Polynal-PolynalUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
