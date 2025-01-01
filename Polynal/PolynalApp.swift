@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct PolynalApp: App {
+  init() {
+    EnvLoader.loadEnv()
+  }
+
   var body: some Scene {
     WindowGroup {
       ContentView()
