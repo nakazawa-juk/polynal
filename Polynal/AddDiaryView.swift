@@ -32,7 +32,7 @@ struct AddDiaryView: View {
   }
 
   private func saveDiary() {
-    let newDiary = Diary(id: UUID(), date: Date(), content: content)
+    let newDiary = Diary(id: UUID(), date: Date(), content: content, translatedContent: "")
     diaries.append(newDiary)
     Diary.saveDiaries(diaries)
     presentationMode.wrappedValue.dismiss()

@@ -4,6 +4,7 @@ struct Diary: Identifiable, Codable {
   let id: UUID
   let date: Date
   var content: String
+  var translatedContent: String
 
   var formattedDate: String {
     let formatter = DateFormatter()

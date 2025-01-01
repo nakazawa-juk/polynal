@@ -1,3 +1,4 @@
+import AVFoundation
 import SwiftUI
 
 struct DiaryDetailView: View {
@@ -5,6 +6,7 @@ struct DiaryDetailView: View {
   @State private var isEditing = false
   @State private var editedContent: String = ""
   @State private var translatedContent: String = ""
+  private let synthesizer = AVSpeechSynthesizer()
 
   var body: some View {
     VStack {
@@ -23,9 +25,9 @@ struct DiaryDetailView: View {
       } else {
         Text(diary.content)
           .padding()
-        if !translatedContent.isEmpty {
+        if !diary.translatedContent.isEmpty {
           ScrollView {
-            Text(translatedContent)
+            Text(diary.translatedContent)
               .padding()
               .background(Color(UIColor.systemGray6))
               .cornerRadius(8)
@@ -38,21 +40,33 @@ struct DiaryDetailView: View {
           .scrollIndicators(.visible)
         }
         Spacer()
+        HStack {
+          Button(action: translateDiary) {
+            Text("英訳")
+              .frame(maxWidth: .infinity)
+              .padding()
+              .background(Color.green)
+              .foregroundColor(.white)
+              .cornerRadius(8)
+          }
+          .padding(.horizontal)
+          .padding(.bottom, 1)
+          Button(action: readAloud) {
+            Text("読み上げ")
+              .frame(maxWidth: .infinity)
+              .padding()
+              .background(Color.orange)
+              .foregroundColor(.white)
+              .cornerRadius(8)
+          }
+          .padding(.horizontal)
+          .padding(.bottom, 1)
+        }
         Button(action: { isEditing = true }) {
           Text("編集")
             .frame(maxWidth: .infinity)
             .padding()
             .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-        }
-        .padding(.horizontal)
-        .padding(.bottom, 1)
-        Button(action: translateDiary) {
-          Text("英訳")
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.green)
             .foregroundColor(.white)
             .cornerRadius(8)
         }
@@ -83,8 +97,6 @@ struct DiaryDetailView: View {
       return
     }
 
-    print("API key: \(apiKey)")
-
     // ChatGPT APIを使用して英訳を取得する処理を実装
     let url = URL(string: "https://api.openai.com/v1/chat/completions")!
     var request = URLRequest(url: url)
@@ -92,7 +104,7 @@ struct DiaryDetailView: View {
     request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-    let prompt = "英語を学習中。日記を英訳して、各フレーズを解説してください。解説は短く。使用する英単語の意味も教えて。\n【フォーマット】\n【英訳】\n【解説】 \(diary.content)"
+    let prompt = "英語を学習中。日記を英訳して、各フレーズを解説してください。解説は短く。使用する英単語の意味も教えて。\n【フォーマット】\n## Translated\n---\n## explain \(diary.content)"
 
     let body: [String: Any] = [
       // "model": "gpt-3.5-turbo-0125",
@@ -112,10 +124,17 @@ struct DiaryDetailView: View {
       if let response = try? JSONDecoder().decode(ChatGPTResponse.self, from: data) {
         print("Response: \(response)")
         if let translatedText = response.choices.first?.message.content.trimmingCharacters(in: .whitespacesAndNewlines) {
-          print("Translated text: \(translatedText)")
           DispatchQueue.main.async {
             translatedContent = translatedText
             print("Translated content: \(translatedContent)")
+
+            // translatedContentを日記データに追加して保存
+            diary.translatedContent = translatedContent
+            if let index = Diary.loadDiaries().firstIndex(where: { $0.id == diary.id }) {
+              var diaries = Diary.loadDiaries()
+              diaries[index] = diary
+              Diary.saveDiaries(diaries)
+            }
           }
         } else {
           print("No translated text found in response.")
@@ -125,6 +144,25 @@ struct DiaryDetailView: View {
         print("Response string: \(responseString)")
       }
     }.resume()
+  }
+
+  private func readAloud() {
+    let pattern = "## Translated\\s*(.*?)\\s*---"
+    if let range = diary.translatedContent.range(of: pattern, options: .regularExpression) {
+      let contentToRead = String(diary.translatedContent[range])
+        .replacingOccurrences(of: "## Translated", with: "")
+        .replacingOccurrences(of: "---", with: "")
+        .trimmingCharacters(in: .whitespacesAndNewlines)
+      print("読み上げる内容: \(contentToRead)")
+      let utterance = AVSpeechUtterance(string: contentToRead)
+
+      utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+      utterance.rate = 0.2
+
+      synthesizer.speak(utterance)
+    } else {
+      print("指定されたパターンが見つかりませんでした。")
+    }
   }
 }
 
