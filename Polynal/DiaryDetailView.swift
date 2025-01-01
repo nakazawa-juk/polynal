@@ -27,7 +27,15 @@ struct DiaryDetailView: View {
           ScrollView {
             Text(translatedContent)
               .padding()
+              .background(Color(UIColor.systemGray6))
+              .cornerRadius(8)
+              .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                  .stroke(Color.gray, lineWidth: 1)
+              )
           }
+          .padding()
+          .scrollIndicators(.visible)
         }
         Spacer()
         Button(action: { isEditing = true }) {
