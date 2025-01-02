@@ -10,6 +10,9 @@ struct MarkdownTextView: View {
           Text(line.replacingOccurrences(of: "## ", with: ""))
             .font(.title2)
             .fontWeight(.bold)
+        } else if line.starts(with: "### ") {
+          Text(line.replacingOccurrences(of: "### ", with: "\n"))
+            .fontWeight(.bold)
         } else if line.range(of: #"^\d+\.\s"#, options: .regularExpression) != nil {
           Text(line
             .replacingOccurrences(of: #"(\d+\.\s)"#, with: "\n$1", options: .regularExpression)
