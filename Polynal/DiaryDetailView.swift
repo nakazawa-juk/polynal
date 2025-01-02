@@ -77,7 +77,7 @@ struct DiaryDetailView: View {
           .padding(.horizontal)
           .padding(.bottom, 1)
         }
-        Button(action: { isEditing = true }) {
+        Button(action: toEdit) {
           Text("編集")
             .frame(maxWidth: .infinity)
             .padding()
@@ -113,6 +113,7 @@ struct DiaryDetailView: View {
   }
 
   private func translateDiary() {
+    stopSpeaking()
     // EnvLoaderを使用して環境変数からAPIキーを取得
     guard let apiKey = ProcessInfo.processInfo.environment["OPENAI_API_KEY"] else {
       print("API key not found")
@@ -170,10 +171,15 @@ struct DiaryDetailView: View {
 
   private func toggleReadAloud() {
     if isReadingAloud {
-      synthesizer.stopSpeaking(at: .immediate)
+      stopSpeaking()
     } else {
       readAloud()
     }
+  }
+
+  private func stopSpeaking() {
+    synthesizer.stopSpeaking(at: .immediate)
+    isReadingAloud = false
   }
 
   private func readAloud() {
@@ -194,6 +200,11 @@ struct DiaryDetailView: View {
     } else {
       print("指定されたパターンが見つかりませんでした。")
     }
+  }
+
+  private func toEdit() {
+    stopSpeaking()
+    isEditing = true
   }
 }
 
