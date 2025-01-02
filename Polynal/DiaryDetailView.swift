@@ -42,7 +42,7 @@ struct DiaryDetailView: View {
           .padding()
         if !diary.translatedContent.isEmpty {
           ScrollView {
-            Text(diary.translatedContent)
+            MarkdownTextView(text: diary.translatedContent)
               .padding()
               .background(Color(UIColor.systemGray6))
               .cornerRadius(8)
