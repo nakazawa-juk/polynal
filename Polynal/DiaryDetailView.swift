@@ -1,12 +1,27 @@
 import AVFoundation
 import SwiftUI
 
+class SpeechSynthesizerDelegate: NSObject, AVSpeechSynthesizerDelegate {
+  var onFinish: (() -> Void)?
+  var onCancel: (() -> Void)?
+
+  func speechSynthesizer(_: AVSpeechSynthesizer, didFinish _: AVSpeechUtterance) {
+    onFinish?()
+  }
+
+  func speechSynthesizer(_: AVSpeechSynthesizer, didCancel _: AVSpeechUtterance) {
+    onCancel?()
+  }
+}
+
 struct DiaryDetailView: View {
   @Binding var diary: Diary
   @State private var isEditing = false
   @State private var editedContent: String = ""
   @State private var translatedContent: String = ""
+  @State private var isReadingAloud = false
   private let synthesizer = AVSpeechSynthesizer()
+  private let speechDelegate = SpeechSynthesizerDelegate()
 
   var body: some View {
     VStack {
@@ -51,11 +66,11 @@ struct DiaryDetailView: View {
           }
           .padding(.horizontal)
           .padding(.bottom, 1)
-          Button(action: readAloud) {
-            Text("読み上げ")
+          Button(action: toggleReadAloud) {
+            Text(isReadingAloud ? "停止" : "読み上げ")
               .frame(maxWidth: .infinity)
               .padding()
-              .background(Color.orange)
+              .background(isReadingAloud ? Color.red : Color.orange)
               .foregroundColor(.white)
               .cornerRadius(8)
           }
@@ -77,6 +92,13 @@ struct DiaryDetailView: View {
     .navigationTitle(diary.formattedDate)
     .onAppear {
       editedContent = diary.content
+      synthesizer.delegate = speechDelegate
+      speechDelegate.onFinish = {
+        isReadingAloud = false
+      }
+      speechDelegate.onCancel = {
+        isReadingAloud = false
+      }
     }
   }
 
@@ -146,6 +168,14 @@ struct DiaryDetailView: View {
     }.resume()
   }
 
+  private func toggleReadAloud() {
+    if isReadingAloud {
+      synthesizer.stopSpeaking(at: .immediate)
+    } else {
+      readAloud()
+    }
+  }
+
   private func readAloud() {
     let pattern = "## Translated\\s*(.*?)\\s*---"
     if let range = diary.translatedContent.range(of: pattern, options: .regularExpression) {
@@ -157,9 +187,10 @@ struct DiaryDetailView: View {
       let utterance = AVSpeechUtterance(string: contentToRead)
 
       utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-      utterance.rate = 0.2
+      utterance.rate = 0.3
 
       synthesizer.speak(utterance)
+      isReadingAloud = true
     } else {
       print("指定されたパターンが見つかりませんでした。")
     }
